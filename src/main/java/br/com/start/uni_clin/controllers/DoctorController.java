@@ -41,10 +41,11 @@ public class DoctorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Doctor> findDoctorById( @PathVariable("id") Long id) {
+    public ResponseEntity<Doctor> findCustomerById(@PathVariable Long id) {
 
         Doctor entity = this.doctorService.findDoctorById(id);
 
         return ResponseEntity.ok(entity);
     }
+
 }
