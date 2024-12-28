@@ -9,5 +9,4 @@ public class UniClinApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(UniClinApplication.class, args);
 	}
-
 }
