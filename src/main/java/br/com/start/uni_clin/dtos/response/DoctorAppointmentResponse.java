@@ -11,13 +11,13 @@ import lombok.Setter;
 public class DoctorAppointmentResponse {
     
     private Long id;
-    private String patient;
+    private Long patient;
     private LocalDateTime date;
     private Long doctor;
 
     public DoctorAppointmentResponse(DoctorAppointment dto) {
         this.id = dto.getId();
-        this.patient = dto.getPatient();
+        this.patient = dto.getPatient().getId();
         this.date = dto.getDate();
         this.doctor = dto.getDoctor().getId();
     }
