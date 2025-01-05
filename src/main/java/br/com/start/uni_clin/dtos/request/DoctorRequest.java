@@ -1,5 +1,7 @@
 package br.com.start.uni_clin.dtos.request;
 
+import java.util.ArrayList;
+
 import lombok.Getter;
 import lombok.Setter;
 
