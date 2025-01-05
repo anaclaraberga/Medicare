@@ -1,6 +1,7 @@
 package br.com.start.uni_clin.entities;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import br.com.start.uni_clin.dtos.request.DoctorRequest;
 import io.micrometer.common.lang.Nullable;
@@ -38,18 +39,9 @@ public class Doctor {
     private String crm;
 
     public Doctor(DoctorRequest dto) {
-
-        // ArrayList<String> array = new ArrayList<String>(dto.getCrm().length());
-
-        // String state = array.get(0) + array.get(1);
-
-        // array.remove(0);
-        // array.remove(1);
-
         this.name = dto.getName();
         this.email = dto.getEmail();
         this.phone = dto.getPhone();
         this.crm = "CRM/" + dto.getCrm().toUpperCase();
-        // this.crm = "CRM/" + state + " " + array;
     }
 }
