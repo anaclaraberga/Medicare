@@ -1,10 +1,6 @@
 package br.com.start.uni_clin.entities;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import br.com.start.uni_clin.dtos.request.DoctorRequest;
-import io.micrometer.common.lang.Nullable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
