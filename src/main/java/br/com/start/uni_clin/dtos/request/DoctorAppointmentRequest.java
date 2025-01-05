@@ -6,6 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class DoctorAppointmentRequest {
-    private String patient;
-    private String doctor;
+    private Long patient;
+    private Long doctor;
 }
