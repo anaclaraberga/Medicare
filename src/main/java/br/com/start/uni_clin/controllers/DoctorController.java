@@ -45,7 +45,7 @@ public class DoctorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Doctor> findCustomerById(@PathVariable Long id) {
+    public ResponseEntity<Doctor> findDoctorById(@PathVariable Long id) {
 
         Doctor entity = this.doctorService.findDoctorById(id);
 
