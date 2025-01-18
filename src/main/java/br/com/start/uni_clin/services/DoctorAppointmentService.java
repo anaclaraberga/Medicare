@@ -1,6 +1,11 @@
 package br.com.start.uni_clin.services;
 
+import java.util.List;
+import java.util.Optional;
+
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.start.uni_clin.dtos.request.DoctorAppointmentRequest;
@@ -27,10 +32,10 @@ public class DoctorAppointmentService {
 
     public DoctorAppointment createDoctorAppointment(DoctorAppointmentRequest dto) {
         Doctor doctor = doctorRepository.findById(dto.getDoctor())
-            .orElseThrow(() -> new RuntimeException("Doctor not found."));
+            .orElseThrow(() -> new RuntimeException("Doctor not found. Please, try again with a different ID number."));
 
         Patient patient = patientRepository.findById(dto.getPatient())
-            .orElseThrow(() -> new RuntimeException("Patient not found."));
+            .orElseThrow(() -> new RuntimeException("Patient not found. Please, try again with a different ID number."));
 
         DoctorAppointment doctorAppointment = new DoctorAppointment(dto);
 
@@ -38,5 +43,34 @@ public class DoctorAppointmentService {
         doctorAppointment.setPatient(patient);
 
         return doctorAppointmentRepository.save(doctorAppointment);
+    }
+
+    public DoctorAppointment findDoctorAppointmentById(Long id) {
+        Optional<DoctorAppointment> doctorAppointment = this.doctorAppointmentRepository.findById(id);
+
+        return doctorAppointment.orElseThrow(() -> new ObjectNotFoundException("Doctor appointment not found! Id: " + id + "Type: " + DoctorAppointment.class.getName(), doctorAppointment));
+    }
+
+    public List<DoctorAppointment> getAllDoctorAppointments() {
+        return doctorAppointmentRepository.findAll();
+    }
+
+    public ResponseEntity<DoctorAppointment> updateDoctorAppointmentById(DoctorAppointmentRequest dto, Long id) {
+        return doctorAppointmentRepository.findById(id)
+        .map(update -> {
+            update.getDate();
+
+            DoctorAppointment updated = doctorAppointmentRepository.save(update);
+            return ResponseEntity.ok().body(updated);
+        }).orElse(ResponseEntity.notFound().build());
+    }
+
+    public ResponseEntity<Object> deleteDoctorAppointmentById(Long id) {
+        return doctorAppointmentRepository.findById(id)
+        .map( delete -> {
+            doctorAppointmentRepository.deleteById(id);
+
+            return ResponseEntity.noContent().build();
+        }).orElse(ResponseEntity.notFound().build());
     }
 }
