@@ -13,25 +13,30 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "doctor_appointment")
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 public class DoctorAppointment {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "patients_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "patient_id", referencedColumnName = "id")
     private Patient patient;
 
     @Column(nullable = false)
     private LocalDateTime date;
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "doctors_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "doctor_id", referencedColumnName = "id")
     private Doctor doctor;
 
     public DoctorAppointment(DoctorAppointmentRequest dto) {
