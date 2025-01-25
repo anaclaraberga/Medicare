@@ -32,6 +32,12 @@ public class DoctorService {
         return doctor.orElseThrow(() -> new ObjectNotFoundException("Doutor não encontrado! Id: " + id + "Tipo: " + Doctor.class.getName(), doctor));
     }
 
+    public List<Doctor> findDoctorByName(String name, String crm) {
+        List<Doctor> doctor = this.doctorRepository.findByNameOrCrm(name, crm);
+
+        return doctor;
+    }
+
     public List<Doctor> getAllDoctors() {
         return doctorRepository.findAll();
     }
