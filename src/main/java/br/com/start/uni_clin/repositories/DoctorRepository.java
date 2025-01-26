@@ -16,8 +16,11 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long>{
     
     @NativeQuery("SELECT d.id, d.crm, d.email, d.name, d.phone " +
                     "FROM doctor d " +
-                        "WHERE d.name LIKE :name% " +
-                            "OR d.name LIKE %:name% " +
-                                "AND d.crm LIKE %:crm%")
-    List<Doctor> findByNameOrCrm(@Param("name") String name, @Param("crm") String crm);
+                        "WHERE LOWER(d.name) LIKE LOWER(:name%)")
+    List<Doctor> findByName(@Param("name") String name);
+
+    @NativeQuery("SELECT d.id, d.crm, d.email, d.name, d.phone " +
+                    "FROM doctor d " +
+                        "WHERE LOWER(d.crm) LIKE LOWER(%:crm%)")
+    List<Doctor> findByCRM(@Param("crm") String crm);
 }
