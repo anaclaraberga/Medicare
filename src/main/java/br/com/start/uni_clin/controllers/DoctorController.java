@@ -54,9 +54,9 @@ public class DoctorController {
 
     @PostMapping("/search")
     @ResponseStatus(HttpStatus.OK)
-    public List<Doctor> findDoctorByNameOrCrm(@RequestBody DoctorRequest dto) {
+    public List<Doctor> findDoctorByName(@RequestBody DoctorRequest dto) {
 
-        List<Doctor> entity = this.doctorService.findDoctorByName(dto.getName(), dto.getCrm());
+        List<Doctor> entity = this.doctorService.findDoctorByName(dto.getName());
 
         return entity;
     }
