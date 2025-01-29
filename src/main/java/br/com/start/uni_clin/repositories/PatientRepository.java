@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.NativeQuery;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import br.com.start.uni_clin.entities.Doctor;
 import br.com.start.uni_clin.entities.Patient;
 
 @Repository
