@@ -12,8 +12,8 @@ import br.com.start.uni_clin.entities.Patient;
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Long>{
     
-    @NativeQuery("SELECT p.id, p.email, p.name, p.phone " +
+    @NativeQuery("SELECT p.id, p.email, p.name, p.phone, p.surname " +
                     "FROM patient p " +
-                        "WHERE LOWER(p.name) LIKE LOWER(%:name%)")
-    List<Patient> findByName(@Param("name") String name);
+                        "WHERE LOWER(p.name) LIKE LOWER('%:search%')")
+    List<Patient> findByName(@Param("search") String search);
 }
