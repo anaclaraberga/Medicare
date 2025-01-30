@@ -52,6 +52,15 @@ public class PatientController {
         return ResponseEntity.ok(entity);
     }
 
+    @PostMapping("/search")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Patient> findPatientByName(@RequestBody String search) {
+
+        List<Patient> entity = this.patientService.findPatientByName(search);
+
+        return entity;
+    }
+
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Patient> getAllPatients() {
