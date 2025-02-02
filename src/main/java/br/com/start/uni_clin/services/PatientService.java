@@ -32,8 +32,8 @@ public class PatientService {
         return patient.orElseThrow(() -> new ObjectNotFoundException("Doutor não encontrado! Id: " + id + "Tipo: " + Patient.class.getName(), patient));
     }
 
-    public List<Patient> findPatientByName(String search) {
-        List<Patient> patient = this.patientRepository.findByName(search);
+    public List<Patient> findPatientByName(PatientRequest dto) {
+        List<Patient> patient = this.patientRepository.findByName(dto.getName());
 
         return patient;
     }
