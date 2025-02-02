@@ -1,6 +1,7 @@
 package br.com.start.uni_clin.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -56,9 +57,7 @@ public class DoctorController {
     @ResponseStatus(HttpStatus.OK)
     public List<Doctor> findDoctorByName(@RequestBody DoctorRequest dto) {
 
-        List<Doctor> entity = this.doctorService.findDoctorByName(dto.getName());
-
-        return entity;
+        return doctorService.findDoctorByName(dto);
     }
 
     @GetMapping
