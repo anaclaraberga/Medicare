@@ -49,6 +49,7 @@ public class DoctorService {
             update.setEmail(dto.getEmail());
             update.setName(dto.getName());
             update.setPhone(dto.getPhone());
+            update.setSpecialty(dto.getSpecialty());
 
             Doctor updated = doctorRepository.save(update);
             return ResponseEntity.ok().body(updated);
