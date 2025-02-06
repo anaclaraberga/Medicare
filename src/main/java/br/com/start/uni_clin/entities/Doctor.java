@@ -1,6 +1,7 @@
 package br.com.start.uni_clin.entities;
 
 import br.com.start.uni_clin.dtos.request.DoctorRequest;
+import br.com.start.uni_clin.enums.MedicalSpecialty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,10 +35,14 @@ public class Doctor {
     @Column(nullable = false, length = 13)
     private String crm;
 
+    @Column(nullable = false)
+    private MedicalSpecialty specialty;
+
     public Doctor(DoctorRequest dto) {
         this.name = dto.getName();
         this.email = dto.getEmail();
         this.phone = dto.getPhone();
         this.crm = "CRM/" + dto.getCrm().toUpperCase();
+        this.specialty = dto.getSpecialty();
     }
 }
