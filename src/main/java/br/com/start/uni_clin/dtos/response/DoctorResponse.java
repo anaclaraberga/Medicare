@@ -1,5 +1,6 @@
 package br.com.start.uni_clin.dtos.response;
 import br.com.start.uni_clin.entities.Doctor;
+import br.com.start.uni_clin.enums.MedicalSpecialty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ public class DoctorResponse {
     private String email;
     private String phone;
     private String crm;
+    private MedicalSpecialty specialty;
 
     public DoctorResponse(Doctor doctor) {
         this.id = doctor.getId();
@@ -18,5 +20,6 @@ public class DoctorResponse {
         this.email = doctor.getEmail();
         this.phone = doctor.getPhone();
         this.crm = doctor.getCrm();
+        this.specialty = doctor.getSpecialty();
     }
 }
