@@ -11,8 +11,8 @@
 	<groupId>br.com.start</groupId>
 	<artifactId>uni-clin</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>uni-clin</name>
-	<description>UniClin Project</description>
+	<name>medicare</name>
+	<description>Medicare Project</description>
 	<url/>
 	<licenses>
 		<license/>
