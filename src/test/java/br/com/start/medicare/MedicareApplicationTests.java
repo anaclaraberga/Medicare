@@ -1,4 +1,4 @@
-package br.com.start.uni_clin;
+package br.com.start.medicare;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

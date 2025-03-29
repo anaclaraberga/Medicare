@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.start</groupId>
-	<artifactId>uni-clin</artifactId>
+	<artifactId>medicare</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>medicare</name>
 	<description>Medicare Project</description>
